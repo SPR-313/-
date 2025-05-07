@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نذر ظهور منتقم</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .number-input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .total-salawat {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>نذر ظهور منتقم</h1>
+        <p>سهم من از نذر ظهور منتقم</p>
+        
+        <input id="salawat-input" class="number-input" type="number" placeholder="تعداد صلوات" />
+        <button class="button" onclick="addSalawat()">ثبت</button>
+        
+        <p class="total-salawat" id="total-salawat">آمار کل صلوات: 0</p>
+    </div>
+
+    <script>
+        let totalSalawat = 0;
+
+        function addSalawat() {
+            const input = document.getElementById("salawat-input");
+            const enteredSalawat = parseInt(input.value);
+
+            if (!isNaN(enteredSalawat) && enteredSalawat > 0) {
+                totalSalawat += enteredSalawat;
+                document.getElementById("total-salawat").textContent = "آمار کل صلوات: " + totalSalawat;
+                input.value = ""; // Clear the input field after submission
+            } else {
+                alert("لطفاً یک عدد صحیح وارد کنید.");
+            }
+        }
+    </script>
+</body>
+</html>
